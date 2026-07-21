@@ -1,20 +1,19 @@
+function copiarTodo(){
 
-function copiarTexto() {
-  const textArea = document.getElementById("texto");
-  const mensaje = document.getElementById("mensaje");
+let texto = 
+`SCHUSSLER S.A.
+78.813.720-6
+Banco de Chile
+Cuenta Corriente
+N225-00338-04
+cobranzas@schussler.cl`;
 
-  // Selecciona el contenido del área de texto
-  textArea.select();
-  textArea.setSelectionRange(0, 99999); // Para dispositivos móviles
+navigator.clipboard.writeText(texto);
 
-  // Usa la API moderna del portapapeles
-  navigator.clipboard.writeText(textArea.value).then(() => {
-    // Muestra una confirmación visual breve
-    mensaje.style.display = "block";
-    setTimeout(() => {
-      mensaje.style.display = "none";
-    }, 2000);
-  }).catch(err => {
-    console.error("Error al copiar: ", err);
-  });
+document.getElementById("toast").classList.add("mostrar");
+
+setTimeout(()=>{
+document.getElementById("toast").classList.remove("mostrar");
+},2000);
+
 }
