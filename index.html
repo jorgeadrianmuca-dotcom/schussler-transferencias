@@ -1,210 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Datos de Transferencia | SCHUSSLER S.A.</title>
-
-<link rel="stylesheet" href="style.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="icon" href="logo.png">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datos de Transferencia | SCHUSSLER S.A.</title>
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="logo.png">
 </head>
-
 <body>
 
-<div class="container">
-
+  <div class="container">
     <div class="logo">
-
-        <img src="logo.png" alt="SCHUSSLER" width="150">
-
+      <img src="logo.png" alt="SCHUSSLER" width="150">
     </div>
 
     <h1>DATOS DE TRANSFERENCIA</h1>
+    <p class="subtitulo">Toque cualquier tarjeta para copiar el dato.</p>
 
-    <p class="subtitulo">
-        Toque cualquier tarjeta para copiar el dato.
-    </p>
+    <div class="contenedor-tarjetas">
+      <div class="tarjeta" onclick="copiarDato('SCHUSSLER S.A.', this)">
+        <span class="etiqueta">Razón Social</span>
+        <span class="valor">SCHUSSLER S.A.</span>
+      </div>
 
+      <div class="tarjeta" onclick="copiarDato('78.813.720-6', this)">
+        <span class="etiqueta">RUT</span>
+        <span class="valor">78.813.720-6</span>
+      </div>
 
-    <!-- RAZON SOCIAL -->
+      <div class="tarjeta" onclick="copiarDato('Banco de Chile', this)">
+        <span class="etiqueta">Banco</span>
+        <span class="valor">Banco de Chile</span>
+      </div>
 
-    <div class="card" onclick="copiar('SCHUSSLER S.A.',this)">
+      <div class="tarjeta" onclick="copiarDato('Cuenta Corriente', this)">
+        <span class="etiqueta">Tipo de Cuenta</span>
+        <span class="valor">Cuenta Corriente</span>
+      </div>
 
-        <div class="texto">
+      <div class="tarjeta" onclick="copiarDato('N225-00338-04', this)">
+        <span class="etiqueta">Número de Cuenta</span>
+        <span class="valor">N225-00338-04</span>
+      </div>
 
-            <span class="titulo">
-                Razón Social
-            </span>
-
-            <span class="dato">
-                SCHUSSLER S.A.
-            </span>
-
-        </div>
-
-        <div class="copiar">
-
-            📋
-
-        </div>
-
+      <div class="tarjeta" onclick="copiarDato('cobranzas@schussler.cl', this)">
+        <span class="etiqueta">Correo</span>
+        <span class="valor">cobranzas@schussler.cl</span>
+      </div>
     </div>
 
-
-    <!-- RUT -->
-
-    <div class="card" onclick="copiar('78.813.720-6',this)">
-
-        <div class="texto">
-
-            <span class="titulo">
-                RUT
-            </span>
-
-            <span class="dato">
-                78.813.720-6
-            </span>
-
-        </div>
-
-        <div class="copiar">
-
-            📋
-
-        </div>
-
-    </div>
-
-
-    <!-- BANCO -->
-
-    <div class="card" onclick="copiar('Banco de Chile',this)">
-
-        <div class="texto">
-
-            <span class="titulo">
-                Banco
-            </span>
-
-            <span class="dato">
-                Banco de Chile
-            </span>
-
-        </div>
-
-        <div class="copiar">
-
-            📋
-
-        </div>
-
-    </div>
-
-
-    <!-- TIPO -->
-
-    <div class="card" onclick="copiar('Cuenta Corriente',this)">
-
-        <div class="texto">
-
-            <span class="titulo">
-                Tipo de Cuenta
-            </span>
-
-            <span class="dato">
-                Cuenta Corriente
-            </span>
-
-        </div>
-
-        <div class="copiar">
-
-            📋
-
-        </div>
-
-    </div>
-
-
-    <!-- CUENTA -->
-
-    <div class="card cuenta" onclick="copiar('225-00338-04',this)">
-
-        <div class="texto">
-
-            <span class="titulo">
-                Número de Cuenta
-            </span>
-
-            <span class="dato grande">
-                N225-00338-04
-            </span>
-
-        </div>
-
-        <div class="copiar">
-
-            📋
-
-        </div>
-
-    </div>
-
-
-    <!-- EMAIL -->
-
-    <div class="card" onclick="copiar('cobranzas@schussler.cl',this)">
-
-        <div class="texto">
-
-            <span class="titulo">
-                Correo
-            </span>
-
-            <span class="dato">
-                cobranzas@schussler.cl
-            </span>
-
-        </div>
-
-        <div class="copiar">
-
-            📋
-
-        </div>
-
-    </div>
-
-
-
-    <button class="boton"
-        onclick="copiarTodo()">
-
-        📋 Copiar todos los datos
-
-    </button>
-
-
-</div>
-
-
-
-<div id="toast">
-
-    Copiado correctamente
-
-</div>
-
-<script src="script.js"></script>
-
+    <button onclick="copiarTodo()">Copiar todos los datos</button>
+    <p id="mensaje" class="mensaje">Datos copiado correctamente</p>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
