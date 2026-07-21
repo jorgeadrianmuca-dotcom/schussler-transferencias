@@ -58,36 +58,37 @@
       object-fit: contain;
     }
 
+    /* Tamaño de título más pequeño */
     h1 {
-      font-size: 1.35rem;
+      font-size: 1.05rem;
       color: #003366;
       font-weight: 700;
       letter-spacing: 0.5px;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .subtitulo {
       font-size: 0.85rem;
       color: #64748b;
-      margin-bottom: 25px;
+      margin-bottom: 22px;
     }
 
     /* Bloque unificado sin espacios en blanco entre tarjetas */
     .contenedor-tarjetas {
       display: flex;
       flex-direction: column;
-      gap: 0; /* Eliminamos el espacio entre tarjetas */
+      gap: 0;
       margin-bottom: 22px;
       border: 1px solid #e2e8f0;
-      border-left: 4px solid #003366; /* Borde azul unificado en todo el bloque */
+      border-left: 4px solid #003366;
       border-radius: 10px;
-      overflow: hidden; /* Mantiene las esquinas redondeadas en todo el grupo */
+      overflow: hidden;
     }
 
     .tarjeta {
       background-color: #f8fafc;
       border: none;
-      border-bottom: 1px solid #e2e8f0; /* Línea divisoria suave entre datos */
+      border-bottom: 1px solid #e2e8f0;
       padding: 12px 16px;
       display: flex;
       flex-direction: column;
@@ -97,7 +98,6 @@
       text-align: left;
     }
 
-    /* Quita la línea inferior a la última tarjeta */
     .tarjeta:last-child {
       border-bottom: none;
     }
