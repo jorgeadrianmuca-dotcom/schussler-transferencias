@@ -58,7 +58,6 @@
       object-fit: contain;
     }
 
-    /* Tamaño de título más pequeño */
     h1 {
       font-size: 1.05rem;
       color: #003366;
@@ -93,21 +92,11 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
       text-align: left;
     }
 
     .tarjeta:last-child {
       border-bottom: none;
-    }
-
-    .tarjeta:hover {
-      background-color: #f0f7ff;
-    }
-
-    .tarjeta:active {
-      background-color: #e2e8f0;
     }
 
     .etiqueta {
@@ -178,34 +167,35 @@
     </div>
 
     <h1>DATOS DE TRANSFERENCIA</h1>
+    <p class="subtitulo">Presione el botón para copiar los datos.</p>
 
     <div class="contenedor-tarjetas">
-      <div class="tarjeta" onclick="copiarDato('SCHUSSLER S.A.')">
+      <div class="tarjeta">
         <span class="etiqueta">Razón Social:</span>
         <span class="valor">SCHUSSLER S.A.</span>
       </div>
 
-      <div class="tarjeta" onclick="copiarDato('78.813.720-6')">
+      <div class="tarjeta">
         <span class="etiqueta">RUT:</span>
         <span class="valor">78.813.720-6</span>
       </div>
 
-      <div class="tarjeta" onclick="copiarDato('Banco de Chile')">
+      <div class="tarjeta">
         <span class="etiqueta">Banco:</span>
         <span class="valor">Banco de Chile</span>
       </div>
 
-      <div class="tarjeta" onclick="copiarDato('Cuenta Corriente')">
+      <div class="tarjeta">
         <span class="etiqueta">Tipo de Cuenta:</span>
         <span class="valor">Cuenta Corriente</span>
       </div>
 
-      <div class="tarjeta" onclick="copiarDato('225-00338-04')">
+      <div class="tarjeta">
         <span class="etiqueta">Número de Cuenta:</span>
         <span class="valor">225-00338-04</span>
       </div>
 
-      <div class="tarjeta" onclick="copiarDato('cobranzas@schussler.cl')">
+      <div class="tarjeta">
         <span class="etiqueta">Correo:</span>
         <span class="valor">cobranzas@schussler.cl</span>
       </div>
