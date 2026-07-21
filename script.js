@@ -19,12 +19,12 @@ function copiarDato(texto) {
 }
 
 function copiarTodo() {
-  const datos = `SCHUSSLER S.A.
-RUT: 78.813.720-6
-Banco: Banco de Chile
-Cuenta Corriente
-N225-00338-04
-cobranzas@schussler.cl`;
+  const datos = "SCHUSSLER S.A.\n" +
+                "78.813.720-6\n" +
+                "Banco de Chile\n" +
+                "Cuenta Corriente\n" +
+                "225-00338-04\n" +
+                "cobranzas@schussler.cl";
 
   navigator.clipboard.writeText(datos);
   mostrarMensaje();
