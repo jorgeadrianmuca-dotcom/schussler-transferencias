@@ -4,11 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Datos de Transferencia | SCHUSSLER S.A.</title>
-  
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="logo.png">
 </head>
 <body>
@@ -53,9 +48,13 @@
       </div>
     </div>
 
+    <br>
     <button onclick="copiarTodo()">Copiar todos los datos</button>
 
-    <div id="mensaje" class="mensaje-alerta">✓ Datos copiados correctamente</div>
+    <!-- El mensaje inicia completamente invisible (display: none) -->
+    <p id="mensaje" style="display: none; color: #15803d; background-color: #dcfce7; border: 1px solid #bbf7d0; padding: 10px; border-radius: 6px; font-weight: bold; margin-top: 15px; text-align: center;">
+      ✓ Datos copiados correctamente
+    </p>
   </div>
 
   <script src="script.js"></script>
