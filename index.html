@@ -72,37 +72,42 @@
       margin-bottom: 25px;
     }
 
+    /* Bloque unificado sin espacios en blanco entre tarjetas */
     .contenedor-tarjetas {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 0; /* Eliminamos el espacio entre tarjetas */
       margin-bottom: 22px;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #003366; /* Borde azul unificado en todo el bloque */
+      border-radius: 10px;
+      overflow: hidden; /* Mantiene las esquinas redondeadas en todo el grupo */
     }
 
     .tarjeta {
       background-color: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-left: 4px solid #003366;
-      border-radius: 10px;
+      border: none;
+      border-bottom: 1px solid #e2e8f0; /* Línea divisoria suave entre datos */
       padding: 12px 16px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: background-color 0.2s ease;
       text-align: left;
+    }
+
+    /* Quita la línea inferior a la última tarjeta */
+    .tarjeta:last-child {
+      border-bottom: none;
     }
 
     .tarjeta:hover {
       background-color: #f0f7ff;
-      border-color: #93c5fd;
-      border-left-color: #002244;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 51, 102, 0.06);
     }
 
     .tarjeta:active {
-      transform: translateY(0);
+      background-color: #e2e8f0;
     }
 
     .etiqueta {
@@ -173,6 +178,7 @@
     </div>
 
     <h1>DATOS DE TRANSFERENCIA</h1>
+    <p class="subtitulo">Toque cualquier tarjeta para copiar el dato.</p>
 
     <div class="contenedor-tarjetas">
       <div class="tarjeta" onclick="copiarDato('SCHUSSLER S.A.')">
