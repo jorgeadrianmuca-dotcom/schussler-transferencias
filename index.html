@@ -118,18 +118,10 @@
       object-fit: contain;
     }
 
-    h2 {
-      font-size: 1.1rem;
-      color: #003366;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      margin-bottom: 6px;
-    }
-
     .subtitulo {
       font-size: 0.85rem;
       color: #64748b;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
 
     /* Bloque unificado de datos */
@@ -137,7 +129,7 @@
       display: flex;
       flex-direction: column;
       gap: 0;
-      margin-bottom: 24px;
+      margin-bottom: 18px;
       border: 1px solid #e2e8f0;
       border-left: 4px solid #003366;
       border-radius: 12px;
@@ -273,8 +265,6 @@
         <div class="logo-detalle">
           <img src="logo3.png" alt="SCHUSSLER S.A.">
         </div>
-        <h2>DATOS DE TRANSFERENCIA</h2>
-        <p class="subtitulo">Presione el botón para copiar los datos.</p>
 
         <div class="contenedor-tarjetas">
           <div class="tarjeta">
@@ -303,6 +293,7 @@
           </div>
         </div>
 
+        <p class="subtitulo">Presione el botón para copiar los datos</p>
         <button class="btn-copiar" onclick="copiarTabla1()">Copiar datos de transferencia</button>
         <div id="mensaje1" class="mensaje">✓ Datos copiados correctamente</div>
       </div>
@@ -312,8 +303,6 @@
         <div class="logo-detalle">
           <img src="logo2.png" alt="PLASTICOS CORONEL">
         </div>
-        <h2>DATOS DE TRANSFERENCIA</h2>
-        <p class="subtitulo">Presione el botón para copiar los datos.</p>
 
         <div class="contenedor-tarjetas">
           <div class="tarjeta">
@@ -342,6 +331,7 @@
           </div>
         </div>
 
+        <p class="subtitulo">Presione el botón para copiar los datos</p>
         <button class="btn-copiar" onclick="copiarTabla2()">Copiar datos de transferencia</button>
         <div id="mensaje2" class="mensaje">✓ Datos copiados correctamente</div>
       </div>
@@ -395,7 +385,6 @@
     }
 
     function ejecutarCopiaModerna(texto, idMensaje) {
-      // Uso de la API moderna de portapapeles del navegador
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(texto).then(function() {
           mostrarMensajeExito(idMensaje);
@@ -403,7 +392,6 @@
           console.error('Error al copiar: ', err);
         });
       } else {
-        // Método de respaldo por compatibilidad extrema
         var aux = document.createElement("textarea");
         aux.value = texto;
         document.body.appendChild(aux);
@@ -428,9 +416,6 @@
       }
     }
   </script>
-
-</body>
-</html>
 
 </body>
 </html>
