@@ -39,7 +39,7 @@
       position: relative;
     }
 
-    /* ESTILO BASE COMÚN PARA LAS TARJETAS */
+    /* ESTILO BASE COMÚN PARA LAS TARJETAS CON TRANSICIÓN SUAVE */
     .card-base {
       background-color: #ffffff;
       padding: 35px 28px;
@@ -48,13 +48,17 @@
       border: 1px solid #f1f5f9;
       width: 100%;
       text-align: center;
+      opacity: 1;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .oculto {
+      display: none !important;
+      opacity: 0;
+      transform: scale(0.98);
     }
 
     /* PANTALLA DE SELECCIÓN INICIAL */
-    #vista-seleccion {
-      display: block;
-    }
-
     #vista-seleccion .subtitulo-principal {
       font-size: 1.1rem;
       color: #003366;
@@ -96,11 +100,6 @@
       width: auto;
       height: auto;
       object-fit: contain;
-    }
-
-    /* CONTENEDOR DE DETALLES */
-    #vista-detalle {
-      display: none;
     }
 
     .logo-detalle {
@@ -258,10 +257,10 @@
     </div>
 
     <!-- PANTALLA DE DETALLE DE DATOS -->
-    <div id="vista-detalle" class="card-base">
+    <div id="vista-detalle" class="card-base oculto">
       
       <!-- DETALLE SCHUSSLER -->
-      <div id="cuenta-schussler" style="display: none;">
+      <div id="cuenta-schussler" class="oculto">
         <div class="logo-detalle">
           <img src="logo3.png" alt="SCHUSSLER S.A.">
         </div>
@@ -297,7 +296,7 @@
       </div>
 
       <!-- DETALLE PLASTICOS CORONEL -->
-      <div id="cuenta-plasticos" style="display: none;">
+      <div id="cuenta-plasticos" class="oculto">
         <div class="logo-detalle">
           <img src="logo2.png" alt="PLASTICOS CORONEL">
         </div>
@@ -342,22 +341,31 @@
 
   <script>
     function verCuenta(empresa) {
-      document.getElementById("vista-seleccion").style.display = "none";
-      document.getElementById("vista-detalle").style.display = "block";
+      var vistaSeleccion = document.getElementById("vista-seleccion");
+      var vistaDetalle = document.getElementById("vista-detalle");
+
+      vistaSeleccion.classList.add("oculto");
+      vistaDetalle.classList.remove("oculto");
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
+      var cuentaSchussler = document.getElementById("cuenta-schussler");
+      var cuentaPlasticos = document.getElementById("cuenta-plasticos");
+
       if (empresa === 'schussler') {
-        document.getElementById("cuenta-schussler").style.display = "block";
-        document.getElementById("cuenta-plasticos").style.display = "none";
+        cuentaSchussler.classList.remove("oculto");
+        cuentaPlasticos.classList.add("oculto");
       } else {
-        document.getElementById("cuenta-schussler").style.display = "none";
-        document.getElementById("cuenta-plasticos").style.display = "block";
+        cuentaSchussler.classList.add("oculto");
+        cuentaPlasticos.classList.remove("oculto");
       }
     }
 
     function volverInicio() {
-      document.getElementById("vista-detalle").style.display = "none";
-      document.getElementById("vista-seleccion").style.display = "block";
+      var vistaSeleccion = document.getElementById("vista-seleccion");
+      var vistaDetalle = document.getElementById("vista-detalle");
+
+      vistaDetalle.classList.add("oculto");
+      vistaSeleccion.classList.remove("oculto");
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -384,6 +392,11 @@
     }
 
     function ejecutarCopiaModerna(texto) {
+      // Activar vibración háptica suave si el dispositivo lo soporta
+      if (navigator.vibrate) {
+        navigator.vibrate(40);
+      }
+
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(texto).then(function() {
           mostrarMensajeExito();
