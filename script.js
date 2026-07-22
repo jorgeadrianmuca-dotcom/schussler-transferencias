@@ -1,21 +1,21 @@
 function copiarTodoCuenta1() {
-  var datos = "Razón Social: SCHUSSLER S.A.\n" +
-              "RUT: 78.813.720-6\n" +
-              "Banco: Banco de Chile\n" +
-              "Tipo de Cuenta: Cuenta Corriente\n" +
-              "Número de Cuenta: 225-00338-04\n" +
-              "Correo: cobranzas@schussler.cl";
+  var datos = "SCHUSSLER S.A.\n" +
+              "78.813.720-6\n" +
+              "Banco de Chile\n" +
+              "Cuenta Corriente\n" +
+              "225-00338-04\n" +
+              "cobranzas@schussler.cl";
 
   ejecutarCopia(datos, "mensaje1");
 }
 
 function copiarTodoCuenta2() {
-  var datos = "Razón Social: PLASTICOS CORONEL LTDA.\n" +
-              "RUT: 83.400.300-7\n" +
-              "Banco: BANCO SANTANDER\n" +
-              "Tipo de Cuenta: Cuenta Corriente\n" +
-              "Número de Cuenta: 11-06264-4\n" +
-              "Correo: ventas@plasticoscoronel.cl";
+  var datos = "PLASTICOS CORONEL LTDA.\n" +
+              "83.400.300-7\n" +
+              "BANCO SANTANDER\n" +
+              "Cuenta Corriente\n" +
+              "11-06264-4\n" +
+              "ventas@plasticoscoronel.cl";
 
   ejecutarCopia(datos, "mensaje2");
 }
