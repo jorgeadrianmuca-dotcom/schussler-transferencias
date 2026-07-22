@@ -60,7 +60,7 @@
 
     .boton-logo {
       background-color: #ffffff;
-      border: 2px solid #cbd5e1;
+      border: 2px solid #0284c7;
       border-radius: 16px;
       padding: 22px;
       cursor: pointer;
@@ -69,14 +69,15 @@
       justify-content: center;
       align-items: center;
       height: 130px;
-      /* Sombra permanente marcada para que se note en celulares */
-      box-shadow: 0 8px 20px -4px rgba(0, 51, 102, 0.14), 0 2px 4px rgba(0, 0, 0, 0.04);
+      /* Sombra robusta y borde de color para que luzca claramente como un botón en móviles */
+      box-shadow: 0 10px 25px -4px rgba(2, 132, 199, 0.2), 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     }
 
-    .boton-logo:hover {
-      border-color: #0284c7;
-      box-shadow: 0 14px 28px -6px rgba(2, 132, 199, 0.22), 0 4px 8px rgba(0, 0, 0, 0.06);
-      transform: translateY(-3px);
+    .boton-logo:hover, .boton-logo:active {
+      border-color: #0369a1;
+      background-color: #f0f9ff;
+      box-shadow: 0 14px 28px -6px rgba(2, 132, 199, 0.3), 0 6px 8px -2px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
     }
 
     /* Tamaños unificados idénticos para ambos logos */
@@ -208,28 +209,34 @@
       color: #003366;
     }
 
+    /* MENSAJE FLOTANTE CENTRADO (Toast) */
     .mensaje {
       display: none;
-      color: #166534;
-      background-color: #dcfce7;
-      border: 1px solid #bbf7d0;
-      padding: 10px;
-      border-radius: 10px;
-      font-size: 0.85rem;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      color: #ffffff;
+      background-color: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(4px);
+      padding: 18px 28px;
+      border-radius: 16px;
+      font-size: 0.95rem;
       font-weight: 600;
-      margin-top: 12px;
       text-align: center;
-      animation: fadeInScale 0.2s ease;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+      animation: fadeInScale 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     @keyframes fadeInScale {
       from { 
         opacity: 0; 
-        transform: scale(0.97) translateY(8px); 
+        transform: translate(-50%, -40%) scale(0.9); 
       }
       to { 
         opacity: 1; 
-        transform: scale(1) translateY(0); 
+        transform: translate(-50%, -50%) scale(1); 
       }
     }
   </style>
@@ -291,7 +298,6 @@
         </div>
 
         <button class="btn-copiar" onclick="copiarTabla1()">Copiar datos bancarios</button>
-        <div id="mensaje1" class="mensaje">✓ Datos copiados correctamente</div>
       </div>
 
       <!-- DETALLE PLASTICOS CORONEL -->
@@ -328,8 +334,10 @@
         </div>
 
         <button class="btn-copiar" onclick="copiarTabla2()">Copiar datos bancarios</button>
-        <div id="mensaje2" class="mensaje">✓ Datos copiados correctamente</div>
       </div>
+
+      <!-- MENSAJE FLOTANTE GLOBAL -->
+      <div id="mensaje-flotante" class="mensaje">✓ Datos copiados correctamente</div>
 
       <button class="btn-volver" onclick="volverInicio()">← Volver al inicio</button>
 
@@ -365,7 +373,7 @@
                         "225-00338-04\n" +
                         "cobranzas@schussler.cl";
 
-      ejecutarCopiaModerna(textoLimpio, "mensaje1");
+      ejecutarCopiaModerna(textoLimpio);
     }
 
     function copiarTabla2() {
@@ -376,13 +384,13 @@
                         "11-06264-4\n" +
                         "ventas@plasticoscoronel.cl";
 
-      ejecutarCopiaModerna(textoLimpio, "mensaje2");
+      ejecutarCopiaModerna(textoLimpio);
     }
 
-    function ejecutarCopiaModerna(texto, idMensaje) {
+    function ejecutarCopiaModerna(texto) {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(texto).then(function() {
-          mostrarMensajeExito(idMensaje);
+          mostrarMensajeExito();
         }).catch(function(err) {
           console.error('Error al copiar: ', err);
         });
@@ -393,7 +401,7 @@
         aux.select();
         try {
           document.execCommand("copy");
-          mostrarMensajeExito(idMensaje);
+          mostrarMensajeExito();
         } catch (err) {
           console.error('Error de respaldo al copiar', err);
         }
@@ -401,8 +409,8 @@
       }
     }
 
-    function mostrarMensajeExito(idMensaje) {
-      var msj = document.getElementById(idMensaje);
+    function mostrarMensajeExito() {
+      var msj = document.getElementById("mensaje-flotante");
       if (msj) {
         msj.style.display = "block";
         setTimeout(function() {
