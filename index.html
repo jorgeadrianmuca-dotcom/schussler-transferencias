@@ -66,7 +66,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 120px; /* Un poco más de altura para que los logos respiren */
+      height: 120px;
     }
 
     .boton-logo:hover {
@@ -75,18 +75,13 @@
       transform: translateY(-2px);
     }
 
-    /* Tamaño de los logos en los botones */
+    /* Tamaños unificados idénticos para ambos logos */
     .boton-logo img {
-      width: 100%;
-      max-width: 260px; /* Aumentado para mayor presencia */
-      height: 80px;      /* Aumentado de 65px a 80px */
+      max-width: 240px;
+      max-height: 75px;
+      width: auto;
+      height: auto;
       object-fit: contain;
-    }
-
-    /* Ajuste de escala específico para logo3 si contiene márgenes invisibles */
-    .boton-logo img[src="logo3.png"],
-    .logo-detalle img[src="logo3.png"] {
-      transform: scale(1.35);
     }
 
     /* CONTENEDOR DE DETALLES */
@@ -113,9 +108,10 @@
     }
 
     .logo-detalle img {
-      width: 100%;
-      max-width: 260px;
-      height: 80px;
+      max-width: 240px;
+      max-height: 75px;
+      width: auto;
+      height: auto;
       object-fit: contain;
     }
 
@@ -238,9 +234,9 @@
     <p class="subtitulo-principal">¿A cuál de nuestras empresas va a transferir?</p>
 
     <div class="grid-logos">
-      <!-- BOTÓN SCHÜSSLER S.A. -->
+      <!-- BOTÓN SCHUSSLER S.A. -->
       <div class="boton-logo" onclick="verCuenta('schussler')">
-        <img src="logo3.png" alt="SCHÜSSLER S.A.">
+        <img src="logo3.png" alt="SCHUSSLER S.A.">
       </div>
 
       <!-- BOTÓN PLASTICOS CORONEL LTDA. -->
@@ -254,10 +250,10 @@
   <div id="vista-detalle">
     <div class="container">
       
-      <!-- DETALLE SCHÜSSLER -->
+      <!-- DETALLE SCHUSSLER -->
       <div id="cuenta-schussler" style="display: none;">
         <div class="logo-detalle">
-          <img src="logo3.png" alt="SCHÜSSLER S.A.">
+          <img src="logo3.png" alt="SCHUSSLER S.A.">
         </div>
         <h2>DATOS DE TRANSFERENCIA</h2>
         <p class="subtitulo">Presione el botón para copiar los datos.</p>
@@ -265,7 +261,7 @@
         <div class="contenedor-tarjetas">
           <div class="tarjeta">
             <span class="etiqueta">Razón Social:</span>
-            <span class="valor">SCHÜSSLER S.A.</span>
+            <span class="valor">SCHUSSLER S.A.</span>
           </div>
           <div class="tarjeta">
             <span class="etiqueta">RUT:</span>
@@ -357,7 +353,7 @@
     }
 
     function copiarTabla1() {
-      var textoLimpio = "SCHÜSSLER S.A.\n" +
+      var textoLimpio = "SCHUSSLER S.A.\n" +
                         "78.813.720-6\n" +
                         "Banco de Chile\n" +
                         "Cuenta Corriente\n" +
