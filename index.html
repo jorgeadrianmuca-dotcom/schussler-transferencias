@@ -64,11 +64,9 @@
       cursor: pointer;
       transition: all 0.2s ease;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 12px;
-      height: 140px;
+      height: 120px; /* Un poco más de altura para que los logos respiren */
     }
 
     .boton-logo:hover {
@@ -77,26 +75,18 @@
       transform: translateY(-2px);
     }
 
-    /* Tamaño base para los logos */
+    /* Tamaño de los logos en los botones */
     .boton-logo img {
       width: 100%;
-      max-width: 220px;
-      height: 65px;
+      max-width: 260px; /* Aumentado para mayor presencia */
+      height: 80px;      /* Aumentado de 65px a 80px */
       object-fit: contain;
     }
 
-    /* Regla para agrandar visualmente el logo3 si tiene márgenes transparentes */
+    /* Ajuste de escala específico para logo3 si contiene márgenes invisibles */
     .boton-logo img[src="logo3.png"],
     .logo-detalle img[src="logo3.png"] {
-      transform: scale(1.35); /* Aumenta un 35% el tamaño visual de logo3 */
-    }
-
-    .texto-boton {
-      font-size: 0.9rem;
-      color: #003366;
-      font-weight: 700;
-      letter-spacing: 0.4px;
-      text-transform: uppercase;
+      transform: scale(1.35);
     }
 
     /* CONTENEDOR DE DETALLES */
@@ -124,8 +114,8 @@
 
     .logo-detalle img {
       width: 100%;
-      max-width: 220px;
-      height: 65px;
+      max-width: 260px;
+      height: 80px;
       object-fit: contain;
     }
 
@@ -248,16 +238,14 @@
     <p class="subtitulo-principal">¿A cuál de nuestras empresas va a transferir?</p>
 
     <div class="grid-logos">
-      <!-- BOTÓN SCHUSSLER S.A. -->
+      <!-- BOTÓN SCHÜSSLER S.A. -->
       <div class="boton-logo" onclick="verCuenta('schussler')">
-        <img src="logo3.png" alt="SCHUSSLER S.A.">
-        <span class="texto-boton">SCHUSSLER S.A.</span>
+        <img src="logo3.png" alt="SCHÜSSLER S.A.">
       </div>
 
       <!-- BOTÓN PLASTICOS CORONEL LTDA. -->
       <div class="boton-logo" onclick="verCuenta('plasticos')">
         <img src="logo2.png" alt="PLASTICOS CORONEL LTDA.">
-        <span class="texto-boton">PLÁSTICOS CORONEL LTDA.</span>
       </div>
     </div>
   </div>
@@ -266,10 +254,10 @@
   <div id="vista-detalle">
     <div class="container">
       
-      <!-- DETALLE SCHUSSLER -->
+      <!-- DETALLE SCHÜSSLER -->
       <div id="cuenta-schussler" style="display: none;">
         <div class="logo-detalle">
-          <img src="logo3.png" alt="SCHUSSLER">
+          <img src="logo3.png" alt="SCHÜSSLER S.A.">
         </div>
         <h2>DATOS DE TRANSFERENCIA</h2>
         <p class="subtitulo">Presione el botón para copiar los datos.</p>
@@ -277,7 +265,7 @@
         <div class="contenedor-tarjetas">
           <div class="tarjeta">
             <span class="etiqueta">Razón Social:</span>
-            <span class="valor">SCHUSSLER S.A.</span>
+            <span class="valor">SCHÜSSLER S.A.</span>
           </div>
           <div class="tarjeta">
             <span class="etiqueta">RUT:</span>
@@ -369,7 +357,7 @@
     }
 
     function copiarTabla1() {
-      var textoLimpio = "SCHUSSLER S.A.\n" +
+      var textoLimpio = "SCHÜSSLER S.A.\n" +
                         "78.813.720-6\n" +
                         "Banco de Chile\n" +
                         "Cuenta Corriente\n" +
