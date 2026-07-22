@@ -68,7 +68,7 @@
       justify-content: center;
       align-items: center;
       gap: 12px;
-      height: 140px; /* Define altura uniforme para ambos botones */
+      height: 140px;
     }
 
     .boton-logo:hover {
@@ -77,13 +77,18 @@
       transform: translateY(-2px);
     }
 
-    /* Ajuste para que ambos logos se adapten al mismo tamaño estándar */
+    /* Tamaño base para los logos */
     .boton-logo img {
       width: 100%;
-      max-width: 200px;
-      height: 60px;
-      max-height: 60px;
+      max-width: 220px;
+      height: 65px;
       object-fit: contain;
+    }
+
+    /* Regla para agrandar visualmente el logo3 si tiene márgenes transparentes */
+    .boton-logo img[src="logo3.png"],
+    .logo-detalle img[src="logo3.png"] {
+      transform: scale(1.35); /* Aumenta un 35% el tamaño visual de logo3 */
     }
 
     .texto-boton {
@@ -119,9 +124,8 @@
 
     .logo-detalle img {
       width: 100%;
-      max-width: 200px;
-      height: 60px;
-      max-height: 60px;
+      max-width: 220px;
+      height: 65px;
       object-fit: contain;
     }
 
