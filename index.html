@@ -69,18 +69,20 @@
       justify-content: center;
       align-items: center;
       height: 130px;
+      box-shadow: 0 4px 12px rgba(0, 51, 102, 0.04);
     }
 
     .boton-logo:hover {
-      border-color: #003366;
-      box-shadow: 0 10px 25px -5px rgba(0, 51, 102, 0.12);
+      border-color: #0284c7;
+      box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.15);
       transform: translateY(-3px);
+      background-color: #f8fafc;
     }
 
     /* Tamaños unificados idénticos para ambos logos */
     .boton-logo img {
-      max-width: 240px;
-      max-height: 75px;
+      max-width: 220px;
+      max-height: 65px;
       width: auto;
       height: auto;
       object-fit: contain;
@@ -118,19 +120,12 @@
       object-fit: contain;
     }
 
-    .subtitulo {
-      font-size: 0.82rem;
-      color: #64748b;
-      margin-bottom: 16px;
-      font-weight: 500;
-    }
-
     /* Bloque unificado de datos */
     .contenedor-tarjetas {
       display: flex;
       flex-direction: column;
       gap: 0;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       border: 1px solid #e2e8f0;
       border-left: 4px solid #003366;
       border-radius: 12px;
@@ -171,7 +166,7 @@
 
     .btn-copiar {
       width: 100%;
-      background-color: #0284c7; /* Azul brillante y llamativo */
+      background-color: #0284c7;
       color: #ffffff;
       border: none;
       padding: 16px;
@@ -295,8 +290,7 @@
           </div>
         </div>
 
-        <p class="subtitulo">Toca el botón para copiar los datos automáticamente</p>
-        <button class="btn-copiar" onclick="copiarTabla1()">Copiar datos de transferencia</button>
+        <button class="btn-copiar" onclick="copiarTabla1()">Copiar datos bancarios</button>
         <div id="mensaje1" class="mensaje">✓ Datos copiados correctamente</div>
       </div>
 
@@ -333,8 +327,7 @@
           </div>
         </div>
 
-        <p class="subtitulo">Toca el botón para copiar los datos automáticamente</p>
-        <button class="btn-copiar" onclick="copiarTabla2()">Copiar datos de transferencia</button>
+        <button class="btn-copiar" onclick="copiarTabla2()">Copiar datos bancarios</button>
         <div id="mensaje2" class="mensaje">✓ Datos copiados correctamente</div>
       </div>
 
