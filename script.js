@@ -1,11 +1,34 @@
 function copiarTexto(texto, idMensaje) {
-  navigator.clipboard.writeText(texto).then(() => {
-    const mensaje = document.getElementById(idMensaje);
+  // Método compatible universal para copiar al portapapeles
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(texto).then(() => mostrarMensaje(idMensaje));
+  } else {
+    // Alternativa de respaldo para navegadores o entornos móviles restrictivos
+    const textArea = document.createElement("textarea");
+    textArea.value = texto;
+    textArea.style.position = "fixed";
+    textArea.style.left = "-999999px";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    try {
+      document.execCommand('copy');
+      mostrarMensaje(idMensaje);
+    } catch (err) {
+      console.error('Error al copiar: ', err);
+    }
+    document.body.removeChild(textArea);
+  }
+}
+
+function mostrarMensaje(idMensaje) {
+  const mensaje = document.getElementById(idMensaje);
+  if (mensaje) {
     mensaje.style.display = "block";
     setTimeout(() => {
       mensaje.style.display = "none";
     }, 2000);
-  });
+  }
 }
 
 function copiarTodoCuenta1() {
