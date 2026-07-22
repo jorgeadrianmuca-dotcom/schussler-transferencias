@@ -160,12 +160,6 @@
       word-break: break-all;
     }
 
-    .grupo-botones {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
     .btn-copiar {
       width: 100%;
       background-color: #0284c7;
@@ -190,37 +184,6 @@
     .btn-copiar:active {
       transform: translateY(1px);
       box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);
-    }
-
-    /* ESTILO PARA EL BOTÓN DE ABRIR BANCO SANTANDER */
-    .btn-banco {
-      width: 100%;
-      background-color: #ec0000;
-      color: #ffffff;
-      border: none;
-      padding: 12px;
-      border-radius: 12px;
-      font-size: 0.9rem;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s ease;
-      box-shadow: 0 6px 16px rgba(236, 0, 0, 0.25);
-    }
-
-    .btn-banco:hover {
-      background-color: #cc0000;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(236, 0, 0, 0.35);
-    }
-
-    .btn-banco:active {
-      transform: translateY(1px);
     }
 
     .btn-volver {
@@ -329,9 +292,7 @@
           </div>
         </div>
 
-        <div class="grupo-botones">
-          <button class="btn-copiar" onclick="copiarTabla1()">Copiar datos bancarios</button>
-        </div>
+        <button class="btn-copiar" onclick="copiarTabla1()">Copiar datos bancarios</button>
       </div>
 
       <!-- DETALLE PLASTICOS CORONEL -->
@@ -367,14 +328,7 @@
           </div>
         </div>
 
-        <div class="grupo-botones">
-          <button class="btn-copiar" onclick="copiarTabla2()">Copiar datos bancarios</button>
-          
-          <!-- BOTÓN DE PRUEBA PARA ABRIR BANCO SANTANDER -->
-          <a href="santandercl://" class="btn-banco" onclick="copiarTabla2()">
-            Abrir Banco Santander
-          </a>
-        </div>
+        <button class="btn-copiar" onclick="copiarTabla2()">Copiar datos bancarios</button>
       </div>
 
       <button class="btn-volver" onclick="volverInicio()">← Volver al inicio</button>
